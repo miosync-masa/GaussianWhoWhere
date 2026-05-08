@@ -1,5 +1,7 @@
 # GaussianWhoWhere
 
+[![Lean Action CI](https://github.com/miosync-masa/GaussianWhoWhere/actions/workflows/lean_action_ci.yml/badge.svg)](https://github.com/miosync-masa/GaussianWhoWhere/actions/workflows/lean_action_ci.yml)
+
 Lean formalization project for the finite Hermite-Pochhammer core of the
 Who/Where decomposition of zeta-type structures.
 
