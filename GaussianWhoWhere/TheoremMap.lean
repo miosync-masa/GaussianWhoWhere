@@ -501,4 +501,13 @@ namespace GaussianWhoWhere
 #check @GaussianWhoWhere.ZetaBridge.zetaBridgeCProfile_has_who_euler
 #check @GaussianWhoWhere.ZetaBridge.zetaBridgeCProfile_has_logDeriv_bridge
 
+/-! ## Bridge C, zeta branch — concrete Mathlib-backed Dirichlet bridge -/
+
+#check @GaussianWhoWhere.ZetaBridge.rightHalfPlane_gt_one
+#check @GaussianWhoWhere.ZetaBridge.zetaDirichletModel
+#check @GaussianWhoWhere.ZetaBridge.zetaDirichletModelNatAddOne
+#check @GaussianWhoWhere.ZetaBridge.riemannZeta_bridgeA_dirichlet
+#check @GaussianWhoWhere.ZetaBridge.riemannZeta_has_dirichlet_bridge
+#check @GaussianWhoWhere.ZetaBridge.riemannZeta_bridgeA_dirichlet_natAddOne
+
 end GaussianWhoWhere

@@ -1,5 +1,24 @@
 # Next Step Sprint Plan
 
+**Status:** Completed sprint log.
+
+This document is no longer the active next-step plan. The implementation
+sprints listed here have been completed, except for
+`JensenCartwrightLinearZeroBound`, which is intentionally retained as a
+named classical analytic socket rather than an implementation target.
+
+For the current formalization map, see:
+
+```text
+docs/LeanDAG.md
+```
+
+For the current remaining semantic tasks, see:
+
+```text
+docs/NextResearchTasks.md
+```
+
 ## Purpose
 
 This document records the next implementation sequence after the

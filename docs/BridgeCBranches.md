@@ -68,11 +68,35 @@ $\Lambda(1 - s) = \Lambda(s)$.
 
 **Purpose.** This branch *explains* why Bridge C arises naturally
 from the zeta architecture. It is **not** an `HP_ft` theorem and
-**does not** claim RH. The four layers of `C-zeta` are recorded at
-the type level in
+**does not** claim RH. The four layers of `C-zeta` are recorded in
 [`GaussianWhoWhere/ZetaBridge/Basic.lean`](../GaussianWhoWhere/ZetaBridge/Basic.lean)
-as content-free placeholders; concrete identifications and analytic
-relations are deferred to a later development.
+as predicates of uniform shape ("there exists a model agreeing with
+the function on a nonempty domain"), with one of them now backed by
+a concrete Mathlib theorem and the others retained as typed
+interfaces.
+
+**Status of the four layers.**
+
+* **Bridge A — Dirichlet side**: *concrete and Mathlib-backed.* The
+  predicate `BridgeA_DirichletLike` is realized for `riemannZeta`
+  via Mathlib's `zeta_eq_tsum_one_div_nat_cpow` (and the conventional
+  `n + 1` variant `zeta_eq_tsum_one_div_nat_add_one_cpow`), recording
+  the identification
+  $\zeta(s) = \sum_{n \ge 1} 1 / n^s$ on the right half-plane
+  $\{\,s : 1 < \mathrm{Re}(s)\,\}$. The witnesses are
+  `riemannZeta_bridgeA_dirichlet` and
+  `riemannZeta_bridgeA_dirichlet_natAddOne`.
+* **Bridge A — Euler-product side**: *typed interface.* The predicate
+  `BridgeA_EulerProductLike` has the same shape as the Dirichlet
+  side; a concrete Mathlib backing for `riemannZeta` (via the Euler
+  product on $1 < \mathrm{Re}(s)$) is straightforward to add and is
+  left for a follow-on round.
+* **Bridge A′ — logarithmic-derivative side**: *typed interface.*
+  The predicate `BridgeAprime_LogDerivLike` has the same shape and
+  is left for a follow-on round.
+* **Where — completed functional equation**: *concrete.* The
+  predicate `CompletedWhereLike Λ` is the reflection identity
+  $\forall s,\ \Lambda(1 - s) = \Lambda(s)$, expressed directly.
 
 ## Note on the boundary
 

@@ -394,31 +394,60 @@ Every end-to-end theorem of §3 / §4 carries the socket
 ## 5. ZetaBridge Branch
 
 `Bridge C` is **already visible** in the architecture of zeta itself,
-*before* any Hermite–Pochhammer formalization. The zeta branch is
-recorded as a type-level scaffold; it does **not** connect to
-`HP_ft` and does **not** claim RH.
+*before* any Hermite–Pochhammer formalization. The zeta branch
+records the four layers as `Prop`-valued predicates of uniform
+shape, with one of them now backed by a concrete Mathlib theorem on
+`riemannZeta`. It does **not** connect to `HP_ft` and does **not**
+claim RH.
 
 ### `GaussianWhoWhere/ZetaBridge/Basic.lean`
-* **Role.** Type-level placeholders for the four architectural layers
-  of the zeta object:
+* **Role.** `Prop`-valued predicates for the four architectural
+  layers of the zeta object, plus a concrete Mathlib-backed witness
+  for the Dirichlet side of Bridge A:
 
-  * Who: Dirichlet series side (`BridgeA_DirichletLike`),
-  * Who: Euler product side (`BridgeA_EulerProductLike`),
+  * Who: Dirichlet series side (`BridgeA_DirichletLike`) —
+    *concrete Mathlib backing for `riemannZeta`*,
+  * Who: Euler product side (`BridgeA_EulerProductLike`) —
+    typed interface,
   * Bridge A′: logarithmic-derivative passage
-    (`BridgeAprime_LogDerivLike`),
-  * Where: completed functional equation (`CompletedWhereLike`).
+    (`BridgeAprime_LogDerivLike`) — typed interface,
+  * Where: completed functional equation (`CompletedWhereLike`) —
+    concrete reflection identity.
 
 * **Definitions.** `BridgeA_DirichletLike`,
-  `BridgeA_EulerProductLike`, `BridgeAprime_LogDerivLike`,
-  `CompletedWhereLike`, `ZetaBridgeCProfile`.
+  `BridgeA_EulerProductLike`, `BridgeAprime_LogDerivLike`
+  (each defined as
+  `∃ (domain : Set ℂ) (model : ℂ → ℂ),
+     domain.Nonempty ∧ Set.EqOn _ model domain`),
+  `CompletedWhereLike` (the reflection identity
+  `∀ s, Λ (1 - s) = Λ s`),
+  `ZetaBridgeCProfile`,
+  plus the auxiliary
+  `rightHalfPlane_gt_one := {s : ℂ | 1 < s.re}`,
+  `zetaDirichletModel s := ∑' n : ℕ, 1 / (n : ℂ) ^ s`,
+  `zetaDirichletModelNatAddOne s := ∑' n : ℕ, 1 / ((n : ℂ) + 1) ^ s`.
+
 * **Theorems.** Four projection theorems from a profile to its
-  layer.
+  layer (`zetaBridgeCProfile_has_where`,
+  `_has_who_dirichlet`, `_has_who_euler`,
+  `_has_logDeriv_bridge`), plus three concrete witnesses for
+  `riemannZeta`:
+
+  * `riemannZeta_bridgeA_dirichlet`, via Mathlib's
+    `zeta_eq_tsum_one_div_nat_cpow`;
+  * `riemannZeta_has_dirichlet_bridge` (alias of the above);
+  * `riemannZeta_bridgeA_dirichlet_natAddOne`, via Mathlib's
+    `zeta_eq_tsum_one_div_nat_add_one_cpow`.
+
+  All three witness `BridgeA_DirichletLike riemannZeta` on the
+  domain `rightHalfPlane_gt_one`.
 
 * **Explicit non-claims.** No HP_ft connection, no RH claim. The
-  zeta branch is interpretive; the HP branch is the formalization.
+  Euler product side, the Bridge A′ side, and any concrete
+  `ZetaBridgeCProfile` instance for `riemannZeta` are deferred.
 
 See `docs/BridgeCBranches.md` for the textual articulation of the
-two branches.
+two branches and the per-layer status table.
 
 ---
 
@@ -500,12 +529,20 @@ any `HP_ft` content or any analytic socket.
  ┌──────────────────────────────────────────────────────────────────┐
  │                    Branch C-zeta (§5)                            │
  │                                                                  │
- │   ZetaBridgeCProfile  —  type-level scaffold                     │
- │     Who = Dirichlet ⊕ Euler                                      │
+ │   ZetaBridgeCProfile  —  scaffold (Dirichlet layer concrete)     │
+ │     Who:  Dirichlet  →  riemannZeta_bridgeA_dirichlet            │
+ │             (Mathlib zeta_eq_tsum_one_div_nat_cpow,              │
+ │              + _natAddOne variant; on 1 < Re(s))   [CONCRETE]    │
+ │           Euler product  ─  BridgeA_EulerProductLike             │
+ │             (typed interface, same shape)            [DEFERRED]  │
  │     Bridge A′ = log derivative                                   │
+ │             BridgeAprime_LogDerivLike                            │
+ │             (typed interface, same shape)            [DEFERRED]  │
  │     Where = completed functional equation                        │
+ │             CompletedWhereLike Λ : ∀ s, Λ(1−s) = Λ s [CONCRETE]  │
  │                                                                  │
  │   No HP_ft connection. No RH claim.                              │
+ │   No bundled ZetaBridgeCProfile witness for riemannZeta yet.     │
  └──────────────────────────────────────────────────────────────────┘
 
  ┌──────────────────────────────────────────────────────────────────┐
