@@ -47,6 +47,9 @@ import GaussianWhoWhere.Infinite.JensenCartwrightInterface
 import GaussianWhoWhere.Infinite.JensenFinalPipeline
 import GaussianWhoWhere.Infinite.FunctionalEquationFreezing
 import GaussianWhoWhere.ZetaBridge.Basic
+import GaussianWhoWhere.LFunctionBridge.Basic
+import GaussianWhoWhere.LFunctionBridge.ZetaEulerProduct
+import GaussianWhoWhere.LFunctionBridge.ZetaLogDerivative
 
 /-!
 # GaussianWhoWhere — theorem map
@@ -509,5 +512,38 @@ namespace GaussianWhoWhere
 #check @GaussianWhoWhere.ZetaBridge.riemannZeta_bridgeA_dirichlet
 #check @GaussianWhoWhere.ZetaBridge.riemannZeta_has_dirichlet_bridge
 #check @GaussianWhoWhere.ZetaBridge.riemannZeta_bridgeA_dirichlet_natAddOne
+
+/-! ## L-function Bridge C profile -/
+
+#check @GaussianWhoWhere.LFunctionBridge.DirichletSeriesBridge
+#check @GaussianWhoWhere.LFunctionBridge.EulerProductBridge
+#check @GaussianWhoWhere.LFunctionBridge.LogDerivativeBridge
+#check @GaussianWhoWhere.LFunctionBridge.dirichletSeriesBridge_to_BridgeA_DirichletLike
+#check @GaussianWhoWhere.LFunctionBridge.eulerProductBridge_to_BridgeA_EulerProductLike
+#check @GaussianWhoWhere.LFunctionBridge.logDerivativeBridge_to_BridgeAprime_LogDerivLike
+#check @GaussianWhoWhere.LFunctionBridge.LFunctionBridgeCProfile
+#check @GaussianWhoWhere.LFunctionBridge.lFunctionBridgeCProfile_has_dirichlet
+#check @GaussianWhoWhere.LFunctionBridge.lFunctionBridgeCProfile_has_eulerProduct
+#check @GaussianWhoWhere.LFunctionBridge.lFunctionBridgeCProfile_has_logDerivative
+#check @GaussianWhoWhere.LFunctionBridge.lFunctionBridgeCProfile_has_where
+#check @GaussianWhoWhere.LFunctionBridge.lFunctionBridgeCProfile_to_zetaBridgeCProfile
+#check @GaussianWhoWhere.LFunctionBridge.SelbergClassLike
+#check @GaussianWhoWhere.LFunctionBridge.lFunctionBridgeCProfile_of_selbergClassLike
+
+/-! ## Concrete zeta `EulerProductBridge` witness -/
+
+#check @GaussianWhoWhere.LFunctionBridge.zetaEulerDomain
+#check @GaussianWhoWhere.LFunctionBridge.zetaEulerLocalFactor
+#check @GaussianWhoWhere.LFunctionBridge.zetaEulerProductModel
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_eulerProductBridge
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_bridgeA_eulerProduct
+
+/-! ## Concrete zeta `LogDerivativeBridge` witness -/
+
+#check @GaussianWhoWhere.LFunctionBridge.zetaLogDerivDomain
+#check @GaussianWhoWhere.LFunctionBridge.zetaVonMangoldtModel
+#check @GaussianWhoWhere.LFunctionBridge.zetaLogDerivativeModel
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_logDerivativeBridge
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_bridgeAprime_logDerivative
 
 end GaussianWhoWhere

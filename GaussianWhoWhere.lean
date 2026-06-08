@@ -48,4 +48,7 @@ import GaussianWhoWhere.Infinite.JensenCartwrightInterface
 import GaussianWhoWhere.Infinite.JensenFinalPipeline
 import GaussianWhoWhere.Infinite.FunctionalEquationFreezing
 import GaussianWhoWhere.ZetaBridge.Basic
+import GaussianWhoWhere.LFunctionBridge.Basic
+import GaussianWhoWhere.LFunctionBridge.ZetaEulerProduct
+import GaussianWhoWhere.LFunctionBridge.ZetaLogDerivative
 import GaussianWhoWhere.TheoremMap
