@@ -50,6 +50,8 @@ import GaussianWhoWhere.ZetaBridge.Basic
 import GaussianWhoWhere.LFunctionBridge.Basic
 import GaussianWhoWhere.LFunctionBridge.ZetaEulerProduct
 import GaussianWhoWhere.LFunctionBridge.ZetaLogDerivative
+import GaussianWhoWhere.LFunctionBridge.ZetaArithmeticProfile
+import GaussianWhoWhere.LFunctionBridge.ZetaCompletedWhere
 
 /-!
 # GaussianWhoWhere — theorem map
@@ -545,5 +547,21 @@ namespace GaussianWhoWhere
 #check @GaussianWhoWhere.LFunctionBridge.zetaLogDerivativeModel
 #check @GaussianWhoWhere.LFunctionBridge.riemannZeta_logDerivativeBridge
 #check @GaussianWhoWhere.LFunctionBridge.riemannZeta_bridgeAprime_logDerivative
+
+/-! ## Arithmetic-only zeta Bridge profile -/
+
+#check @GaussianWhoWhere.LFunctionBridge.ZetaArithmeticBridgeProfile
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_arithmeticBridgeProfile
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_arithmeticProfile_has_dirichlet
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_arithmeticProfile_has_eulerProduct
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_arithmeticProfile_has_logDerivative
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_arithmeticProfile_has_eulerProductProp
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_arithmeticProfile_has_logDerivativeProp
+
+/-! ## Concrete completed Where witness + full `ZetaBridgeCProfile riemannZeta` -/
+
+#check @GaussianWhoWhere.LFunctionBridge.completedZetaWhereModel
+#check @GaussianWhoWhere.LFunctionBridge.completedZeta_completedWhere
+#check @GaussianWhoWhere.LFunctionBridge.riemannZeta_zetaBridgeCProfile
 
 end GaussianWhoWhere

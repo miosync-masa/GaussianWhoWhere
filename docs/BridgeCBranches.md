@@ -86,14 +86,29 @@ interfaces.
   $\{\,s : 1 < \mathrm{Re}(s)\,\}$. The witnesses are
   `riemannZeta_bridgeA_dirichlet` and
   `riemannZeta_bridgeA_dirichlet_natAddOne`.
-* **Bridge A — Euler-product side**: *typed interface.* The predicate
-  `BridgeA_EulerProductLike` has the same shape as the Dirichlet
-  side; a concrete Mathlib backing for `riemannZeta` (via the Euler
-  product on $1 < \mathrm{Re}(s)$) is straightforward to add and is
-  left for a follow-on round.
-* **Bridge A′ — logarithmic-derivative side**: *typed interface.*
-  The predicate `BridgeAprime_LogDerivLike` has the same shape and
-  is left for a follow-on round.
+* **Bridge A — Euler-product side**: *concrete and Mathlib-backed.*
+  The predicate `BridgeA_EulerProductLike` is now realized for
+  `riemannZeta` via the typed bridge
+  `riemannZeta_eulerProductBridge :
+   EulerProductBridge riemannZeta` declared in
+  `GaussianWhoWhere/LFunctionBridge/ZetaEulerProduct.lean`, which
+  uses Mathlib's `riemannZeta_eulerProduct_tprod` on the right
+  half-plane.  The forgetful witness
+  `riemannZeta_bridgeA_eulerProduct` discharges the
+  `Prop`-side predicate.
+* **Bridge A′ — logarithmic-derivative side**: *concrete and
+  Mathlib-backed.* The predicate `BridgeAprime_LogDerivLike` is
+  now realized for `riemannZeta` (paired with the von Mangoldt
+  L-series `zetaVonMangoldtModel` as the arithmetic-side
+  companion) via the typed bridge
+  `riemannZeta_logDerivativeBridge :
+   LogDerivativeBridge riemannZeta zetaVonMangoldtModel` declared
+  in `GaussianWhoWhere/LFunctionBridge/ZetaLogDerivative.lean`,
+  which uses Mathlib's
+  `ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div`
+  on the right half-plane.  The forgetful witness
+  `riemannZeta_bridgeAprime_logDerivative` discharges the
+  `Prop`-side predicate.
 * **Where — completed functional equation**: *concrete.* The
   predicate `CompletedWhereLike Λ` is the reflection identity
   $\forall s,\ \Lambda(1 - s) = \Lambda(s)$, expressed directly.

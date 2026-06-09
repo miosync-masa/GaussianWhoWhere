@@ -442,9 +442,28 @@ claim RH.
   All three witness `BridgeA_DirichletLike riemannZeta` on the
   domain `rightHalfPlane_gt_one`.
 
-* **Explicit non-claims.** No HP_ft connection, no RH claim. The
-  Euler product side, the Bridge A′ side, and any concrete
-  `ZetaBridgeCProfile` instance for `riemannZeta` are deferred.
+* **Euler-product side concrete.** `GaussianWhoWhere/LFunctionBridge/ZetaEulerProduct.lean`
+  supplies `riemannZeta_eulerProductBridge :
+  EulerProductBridge riemannZeta` via Mathlib's
+  `riemannZeta_eulerProduct_tprod`, with forgetful
+  `riemannZeta_bridgeA_eulerProduct` discharging the `Prop`-side
+  `BridgeA_EulerProductLike riemannZeta`.
+* **Bridge A′ log-derivative side concrete.**
+  `GaussianWhoWhere/LFunctionBridge/ZetaLogDerivative.lean`
+  supplies `riemannZeta_logDerivativeBridge :
+  LogDerivativeBridge riemannZeta zetaVonMangoldtModel` via
+  Mathlib's
+  `ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div`,
+  with forgetful `riemannZeta_bridgeAprime_logDerivative`
+  discharging the `Prop`-side predicate.
+* **Explicit non-claims.** No HP_ft connection, no RH claim, no
+  zero-location statement, no analytic continuation beyond
+  `Re(s) > 1`. A bundled concrete `ZetaBridgeCProfile` instance
+  for `riemannZeta` is deferred (the typed Type-side
+  `LFunctionBridgeCProfile` instance is the analogous
+  bundle and could be specialized to `riemannZeta` by combining
+  the three concrete bridges above with the completed Where
+  predicate).
 
 See `docs/BridgeCBranches.md` for the textual articulation of the
 two branches and the per-layer status table.
@@ -529,20 +548,25 @@ any `HP_ft` content or any analytic socket.
  ┌──────────────────────────────────────────────────────────────────┐
  │                    Branch C-zeta (§5)                            │
  │                                                                  │
- │   ZetaBridgeCProfile  —  scaffold (Dirichlet layer concrete)     │
+ │   ZetaBridgeCProfile  —  three arithmetic layers concrete       │
  │     Who:  Dirichlet  →  riemannZeta_bridgeA_dirichlet            │
  │             (Mathlib zeta_eq_tsum_one_div_nat_cpow,              │
  │              + _natAddOne variant; on 1 < Re(s))   [CONCRETE]    │
- │           Euler product  ─  BridgeA_EulerProductLike             │
- │             (typed interface, same shape)            [DEFERRED]  │
+ │           Euler product  →  riemannZeta_bridgeA_eulerProduct     │
+ │             (LFunctionBridge/ZetaEulerProduct.lean,              │
+ │              Mathlib riemannZeta_eulerProduct_tprod) [CONCRETE]  │
  │     Bridge A′ = log derivative                                   │
- │             BridgeAprime_LogDerivLike                            │
- │             (typed interface, same shape)            [DEFERRED]  │
+ │           → riemannZeta_bridgeAprime_logDerivative               │
+ │             (LFunctionBridge/ZetaLogDerivative.lean,             │
+ │              Mathlib LSeries_vonMangoldt_eq_deriv...) [CONCRETE] │
  │     Where = completed functional equation                        │
  │             CompletedWhereLike Λ : ∀ s, Λ(1−s) = Λ s [CONCRETE]  │
  │                                                                  │
- │   No HP_ft connection. No RH claim.                              │
- │   No bundled ZetaBridgeCProfile witness for riemannZeta yet.     │
+ │   No HP_ft connection. No RH claim. No zero-location claim.      │
+ │   No analytic continuation beyond Re(s) > 1 in this branch.      │
+ │   A bundled ZetaBridgeCProfile witness for riemannZeta is        │
+ │   deferred (the typed LFunctionBridgeCProfile bundle could be    │
+ │   specialized to riemannZeta from the three concrete bridges).   │
  └──────────────────────────────────────────────────────────────────┘
 
  ┌──────────────────────────────────────────────────────────────────┐

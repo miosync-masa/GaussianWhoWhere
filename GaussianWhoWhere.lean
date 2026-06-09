@@ -51,4 +51,6 @@ import GaussianWhoWhere.ZetaBridge.Basic
 import GaussianWhoWhere.LFunctionBridge.Basic
 import GaussianWhoWhere.LFunctionBridge.ZetaEulerProduct
 import GaussianWhoWhere.LFunctionBridge.ZetaLogDerivative
+import GaussianWhoWhere.LFunctionBridge.ZetaArithmeticProfile
+import GaussianWhoWhere.LFunctionBridge.ZetaCompletedWhere
 import GaussianWhoWhere.TheoremMap
